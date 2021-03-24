@@ -77,7 +77,7 @@ class Response(object):
 
     def get_protocol_data(self, str_format_fun_name="capitalize"):
         status_line = "HTTP/1.1 {status_code} {status}".format(
-            status_code=self.status, status=STATUS[self.status]
+            status_code=self.status, status=STATUS.get(self.status, "Custom Code")
         )
         header_lines = CRLF.join(
             (
